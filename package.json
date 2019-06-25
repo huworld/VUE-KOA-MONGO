@@ -1,0 +1,50 @@
+{
+  "name": "vue-koa-mongo",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "serve": "vue-cli-service serve",
+    "dev": "node serve/app.js",
+    "build": "vue-cli-service build",
+    "lint": "vue-cli-service lint",
+    "start": "npm run dev & npm run serve",
+    "public": "npm run build & npm run dev"
+  },
+  "author": "huruyang",
+  "dependencies": {
+    "art-template": "^4.13.2",
+    "axios": "^0.18.0",
+    "babel-polyfill": "^6.26.0",
+    "ejs": "^2.6.1",
+    "iview": "^2.14.3",
+    "koa": "^2.6.2",
+    "koa-art-template": "^1.1.1",
+    "koa-bodyparser": "^4.2.1",
+    "koa-router": "^7.4.0",
+    "koa-static": "^5.0.0",
+    "koa-views": "^6.1.5",
+    "mongodb": "^3.1.13",
+    "vue": "^2.6.6",
+    "vue-router": "^3.0.1",
+    "vuex": "^3.0.1"
+  },
+  "devDependencies": {
+    "@vue/cli-plugin-babel": "^3.4.0",
+    "@vue/cli-service": "^3.4.0",
+    "fibers": "^3.1.1",
+    "iview-loader": "^1.2.2",
+    "prettier": "^1.17.0",
+    "sass": "^1.16.0",
+    "sass-loader": "^7.1.0",
+    "vue-template-compiler": "^2.5.21"
+  },
+  "postcss": {
+    "plugins": {
+      "autoprefixer": {}
+    }
+  },
+  "browserslist": [
+    "> 1%",
+    "last 2 versions"
+  ]
+}
