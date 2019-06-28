@@ -7,11 +7,15 @@
 
 <script>
 import HelloWorld from './components/HelloWorld.vue'
-
+import {toggle} from './mixin/toggle.js'
 export default {
   name: 'app',
+  mixins:[toggle],
   components: {
     HelloWorld
+  },
+  created(){
+    this.toggle()
   }
 }
 </script>

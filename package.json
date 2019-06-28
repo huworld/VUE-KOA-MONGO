@@ -7,8 +7,9 @@
     "dev": "node serve/app.js",
     "build": "vue-cli-service build",
     "lint": "vue-cli-service lint",
-    "start": "npm run dev & npm run serve",
-    "public": "npm run build & npm run dev"
+    "start": "npm run serve",
+    "public": "npm run build & npm run dev",
+    "pm2": "pm2 start processes.json --watch"
   },
   "author": "huruyang",
   "dependencies": {
@@ -24,6 +25,7 @@
     "koa-static": "^5.0.0",
     "koa-views": "^6.1.5",
     "mongodb": "^3.1.13",
+    "request-promise": "^4.2.4",
     "vue": "^2.6.6",
     "vue-router": "^3.0.1",
     "vuex": "^3.0.1"

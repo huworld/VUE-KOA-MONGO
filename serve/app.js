@@ -9,6 +9,7 @@ const views = require('koa-views')
 // const render = require('koa-art-template')
 const static = require('koa-static')
 const fs = require('fs')
+const request = require('request-promise')
 
 //渲染页面
 // render(app,{

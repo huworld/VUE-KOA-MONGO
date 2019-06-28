@@ -1,0 +1,43 @@
+{
+    "apps": [
+      {
+        "name": "VUE_KOA_MONGOD",
+        "cwd": "./serve",
+        "env": {
+            "NODE_ENV": "development"
+        },
+        "env_production" : {
+            "NODE_ENV": "production"
+        },
+        "env_staging" : {
+            "NODE_ENV" : "staging"
+        },
+        "script": "./app.js",
+        "log_date_format": "YYYY-MM-DD HH:mm Z",
+        "error_file": "./log/err_log.log",
+        "out_file": "./log/node-app.stdout.log",
+        "pid_file": "./pids/node-geo-api.pid",
+        "instances": 6,
+        "min_uptime": "200s",
+        "max_restarts": 10,
+        "max_memory_restart": "1M",
+        "cron_restart": "1 0 * * *",
+        "watch": false,
+        "merge_logs": true,
+        "exec_interpreter": "node",
+        "exec_mode": "fork",
+        "autorestart": false,
+        "vizion": false
+      }
+    ],
+    "deploy" : {
+        "production" : {
+            "user" : "node",                      
+            "host" : ["212.83.163.1"],            
+            "ref"  : "origin/master",          
+            "repo" : "https://github.com/huworld/VUE-KOA-MONGO",
+            "path" : "/var/www/production",   
+            "post-deploy" : "npm install --registry=https://registry.npm.taobao.org && pm2 reload ./app.js --env production " 
+        }
+    }
+  }
