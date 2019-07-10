@@ -10,7 +10,7 @@ const views = require('koa-views')
 const static = require('koa-static')
 const fs = require('fs')
 const request = require('request-promise')
-
+require('./util/index.js')
 //渲染页面
 // render(app,{
 //     root:path.join(__dirname,'../dist'),
@@ -27,7 +27,6 @@ app.use(async(ctx,next)=>{
     ctx.state.username = '张三'
     await next()
 })
-
 //post接口数据处理
 app.use(bodyParser());
 
@@ -50,7 +49,6 @@ app.use(static(
 router.get('/',async (ctx)=>{
     await ctx.render('index2')
 })
-
 
 router.use('/get', get.routes(), get.allowedMethods());
 router.use('/post', post.routes(), post.allowedMethods());

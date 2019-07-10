@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "serve": "vue-cli-service serve",
-    "dev": "node serve/app.js",
+    "dev": "nodemon ./serve/app.js",
     "build": "vue-cli-service build",
     "lint": "vue-cli-service lint",
     "start": "npm run serve",
@@ -35,6 +35,7 @@
     "@vue/cli-service": "^3.4.0",
     "fibers": "^3.1.1",
     "iview-loader": "^1.2.2",
+    "nodemon": "^1.19.1",
     "prettier": "^1.17.0",
     "sass": "^1.16.0",
     "sass-loader": "^7.1.0",
