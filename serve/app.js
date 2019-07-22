@@ -10,7 +10,8 @@ const views = require('koa-views')
 const static = require('koa-static')
 const fs = require('fs')
 const request = require('request-promise')
-require('./util/index.js')
+require('./nodeApi/index.js')
+require('./sort')
 //渲染页面
 // render(app,{
 //     root:path.join(__dirname,'../dist'),
@@ -47,7 +48,7 @@ app.use(static(
 
 //渲染页面
 router.get('/',async (ctx)=>{
-    await ctx.render('index2')
+    await ctx.render('index')
 })
 
 router.use('/get', get.routes(), get.allowedMethods());

@@ -1,5 +1,4 @@
 const assert = require('assert');
-console.log('c')
 
 /* 断言 */
 
