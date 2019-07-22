@@ -5,7 +5,6 @@ const ObjectID = require('mongodb').ObjectID
 class Db{
 
     static getInstance(){
-       console.log('b')
         if(!Db.instance){//解决多次实例化问题
             Db.instance = new Db();
         }return Db.instance;
@@ -19,11 +18,8 @@ class Db{
     }
 
     connect(){
-        console.log('d')
         return new Promise((resolve,reject)=>{
-            console.log('f')
             if(!this.dbClient){//解决数据库多次连接
-                console.log('e')
                 MongoClient.connect(Config.dburl,{ useNewUrlParser: true },(err,client)=>{
                     // console.log(client)
                     if(err){
