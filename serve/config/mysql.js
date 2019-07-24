@@ -1,10 +1,10 @@
 const mysql = require('mysql')
 
 const config = mysql.createPool({
-    host:'10.88.88.219',
-    user: 'root',
-    password: 'tengyue360',
-    database: 'shuangshi'
+    host:'10.88.88.7',
+    user: 'tengyue-dev',
+    password: 'Tengyue@2019!best',
+    database: 'tengyue-salary-calculate'
 })
 
 let query = function( sql, values ) {
