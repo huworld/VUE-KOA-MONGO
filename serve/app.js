@@ -6,7 +6,7 @@ const get = require('./router/get.js')
 const post = require('./router/post.js')
 const bodyParser = require('koa-bodyparser')
 const views = require('koa-views')
-// const render = require('koa-art-template')
+const render = require('koa-art-template')
 const static = require('koa-static')
 const fs = require('fs')
 const request = require('request-promise')
@@ -18,6 +18,12 @@ require('./sort')
 //     extname:'.html',
 //     debug:process.env.NODE_ENV!=="production"
 // })
+
+//渲染views
+render(app,{
+    root:path.join(__dirname,'views'),
+    extname:'.html'
+})
 
 //ejs渲染页面
 app.use(views(__dirname + './../dist', {

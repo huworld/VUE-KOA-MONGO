@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title></title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="">
+    </head>
+    <style>
+        p{
+            display:inline-block;
+        }
+    </style>
+    <body>
+        <h2>编辑学员</h2>
+        <form action="/postMe/doEdit" method="POST">
+            用户ID:<input type="text" name="_id" value="{{@list._id}}"/>
+            <br/>
+            <br/>
+            用户名:<input type="text" name="name" value="{{list.name}}"/>
+            <br/>
+            <br/>
+            年龄:<input type="text" name="age" value="{{list.age}}"/>
+            <br/>
+            <br/>
+            性别:<input type="text" name="sex" value="{{list.sex}}"/>
+            <br/>
+            <br/>
+            状态:<input type="text" name="status" value="{{list.status}}"/>
+            <br/>
+            <br/>
+            <input type="submit" value="编辑">
+        </form>
+
+        
+
+        <script src="" async defer></script>
+    </body>
+</html>

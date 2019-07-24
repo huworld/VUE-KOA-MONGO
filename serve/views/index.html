@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title></title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="">
+    </head>
+    <style>
+        p{
+            display:inline-block;
+        }
+        td,th{
+            width: 10%;
+            text-align: center;
+        }
+    </style>
+    <body>
+        <!--[if lt IE 7]>
+            <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="#">upgrade your browser</a> to improve your experience.</p>
+        <![endif]-->
+         <a href='/getMe/addUser'>添加学员</a>
+        <br/>
+        <br/>
+        <table>
+            <tr>
+                <th>姓名</th>
+                <th>年龄</th>
+                <th>性别</th>
+                <th>状态</th>
+                <th>操作</th>
+            </tr>
+            <%for(var i=0;i<list.length;i++){%>
+                <tr>
+                    <td><%=list[i].name%></td>
+                    <td><%=list[i].age%></td>
+                    <td><%=list[i].sex%></td>
+                    <td><%=list[i].status%></td>
+                    <td>
+                    <a href='/getMe/edit?id=<%-list[i]._id%>'>编辑</a>
+                    <a href='/getMe/remove?id=<%-list[i]._id%>'>删除</a>
+                    </td>
+                </tr>
+            <%}%>
+        </table>
+        <script src="" async defer></script>
+    </body>
+</html>
