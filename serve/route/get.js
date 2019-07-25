@@ -1,3 +1,4 @@
+// mongodb
 const router = require('koa-router')()
 const Db = require('./../config/config.js')
 
@@ -48,4 +49,4 @@ router.get('/remove',async (ctx)=>{
         ctx.redirect('/getMe/userName')
     }
 })
-module.exports = router
+module.exports = router.routes()

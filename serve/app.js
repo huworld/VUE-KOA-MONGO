@@ -1,9 +1,8 @@
 const koa = require('koa')
 const app = new koa()
 const path= require('path');
-const router = require('koa-router')()
-// const get = require('./router/get.js')
-// const post = require('./router/post.js')
+
+const router = require('./route/router.js')
 const bodyParser = require('koa-bodyparser')
 const views = require('koa-views')
 const render = require('koa-art-template')
@@ -12,17 +11,17 @@ const fs = require('fs')
 const request = require('request-promise')
 require('./nodeApi/index.js')
 require('./sort')
-const mq = require('./config/instance')
 
-router.get('/getMsg',async (ctx,next)=>{
-    var name = ctx.request.query.key
-    await mq.query(`SELECT * FROM user where age = ${name}`).then(res=>{
-        ctx.response.body  = res
-    }).catch(err=>{
-        ctx.response.body  = err
-    })
-    next()
-})
+
+// router.get('/getMsg',async (ctx,next)=>{
+//     var name = ctx.request.query.key
+//     await mq.query(`SELECT * FROM user where age = ${name}`).then(res=>{
+//         ctx.response.body  = res
+//     }).catch(err=>{
+//         ctx.response.body  = err
+//     })
+//     next()
+// })
 
 //渲染页面
 // render(app,{
@@ -64,13 +63,11 @@ app.use(static(
     path.join( __dirname,'./../dist')
 ))
 
-//渲染页面
+// //渲染页面
 router.get('/',async (ctx)=>{
     await ctx.render('index')
 })
 
-// router.use('/get', get.routes(), get.allowedMethods());
-// router.use('/post', post.routes(), post.allowedMethods());
 app.use(router.routes()).use(router.allowedMethods());
 app.listen(3000, () => {
     console.log('server is starting at port 3000')

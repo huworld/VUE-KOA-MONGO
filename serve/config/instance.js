@@ -44,6 +44,7 @@ class Mq{
                     } else {
                         resolve( rows )
                     }
+                    connect.release()
                 })
             })
         }).catch((error) => {

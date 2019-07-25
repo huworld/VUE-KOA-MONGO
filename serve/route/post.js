@@ -1,5 +1,6 @@
+//mongodb
 const router = require('koa-router')()
-const Db = require('./../config/config.js')
+const Db = require('../config/config.js')
 
 
 router.post('/age',async (ctx)=>{
@@ -39,4 +40,4 @@ router.post('/doEdit',async (ctx)=>{
         ctx.redirect('/getMe/edit')
     }
 })
-module.exports = router
+module.exports = router.routes()
