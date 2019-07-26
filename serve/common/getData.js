@@ -1,3 +1,4 @@
+/* 接受请求并进行数据处理 */
 const mq = require('../config/instance')
 function getData(cb1,cb2){
     return async (ctx,next)=>{

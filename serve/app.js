@@ -1,8 +1,7 @@
 const koa = require('koa')
 const app = new koa()
 const path= require('path');
-
-const router = require('./route/router.js')
+const router = require('./route/index.js')
 const bodyParser = require('koa-bodyparser')
 const views = require('koa-views')
 const render = require('koa-art-template')
@@ -12,31 +11,20 @@ const request = require('request-promise')
 require('./nodeApi/index.js')
 require('./sort')
 
-
-// router.get('/getMsg',async (ctx,next)=>{
-//     var name = ctx.request.query.key
-//     await mq.query(`SELECT * FROM user where age = ${name}`).then(res=>{
-//         ctx.response.body  = res
-//     }).catch(err=>{
-//         ctx.response.body  = err
-//     })
-//     next()
-// })
-
-//渲染页面
+/* 渲染页面 */
 // render(app,{
 //     root:path.join(__dirname,'../dist'),
 //     extname:'.html',
 //     debug:process.env.NODE_ENV!=="production"
 // })
 
-//渲染views
+/* 渲染views */
 render(app,{
     root:path.join(__dirname,'views'),
     extname:'.html'
 })
 
-//ejs渲染页面
+/* ejs渲染页面 */
 app.use(views(__dirname + './../dist', {
     map : {html:'ejs'}
   }));
@@ -45,10 +33,10 @@ app.use(async(ctx,next)=>{
     ctx.state.username = '张三'
     await next()
 })
-//post接口数据处理
+/* post接口数据处理 */
 app.use(bodyParser());
 
-//处理参数统一格式
+/* 处理参数统一格式 */
 app.use(async (ctx, next) => {
     if (ctx.request.method === 'GET') {
         ctx.params = ctx.request.query;
@@ -58,12 +46,12 @@ app.use(async (ctx, next) => {
     await next();
 });
 
-//配置静态web服务的中间件
+/* 配置静态web服务的中间件 */
 app.use(static(
     path.join( __dirname,'./../dist')
 ))
 
-// //渲染页面
+/* 渲染页面 */
 router.get('/',async (ctx)=>{
     await ctx.render('index')
 })

@@ -1,4 +1,4 @@
-// 获取当前所在文件夹下除index所有文件
+/* 获取当前所在文件夹下除index所有文件 */
 const fs = require('fs')
 const requireDir = function(dir,name){
     if(name){
