@@ -1,3 +1,4 @@
 node_modules
 dist
-serve/log/
+serve/log/*
+serve/error.txt

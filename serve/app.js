@@ -23,8 +23,12 @@ app.use(async (ctx, next) => {
       ctx.app.emit('error', err, ctx);
     }
 })
+function writeLog (data) {
+  fs.appendFile('./serve/error.txt', data, 'utf8')
+}
 app.on('error', (err, ctx) =>{
-  console.error('server error', err)
+  writeLog('server error' + err + '\n' + JSON.stringify(ctx) + '\r\n')
+  console.log('server error', err)
 })
 /* 渲染页面 */
 // render(app,{
