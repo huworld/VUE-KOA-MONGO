@@ -10,6 +10,5 @@ module.exports = function(arr) {
         }
         arr[preIndex+1] = current;
     }
-    console.log(arr)
     return arr;
 }

@@ -11,6 +11,21 @@ const request = require('request-promise')
 require('./nodeApi/index.js')
 require('./sort')
 
+/* 异常捕获处理 */
+app.use(async (ctx, next) => {
+    try {
+      await next();
+    } catch (err) {
+      ctx.response.status = err.statusCode || err.status || 500;
+      ctx.response.body = {
+        message: err.message
+      };
+      ctx.app.emit('error', err, ctx);
+    }
+})
+app.on('error', (err, ctx) =>{
+  console.error('server error', err)
+})
 /* 渲染页面 */
 // render(app,{
 //     root:path.join(__dirname,'../dist'),
