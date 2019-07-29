@@ -51,6 +51,8 @@ class Mq{
                 })
             })
         }).catch((error) => {
+            ctx.status = 0
+            ctx.body = {code:0,msg:'请求失败'}
             console.log(error,'Promise error');
         });
     }

@@ -12,7 +12,6 @@ class Db{
     }
 
     constructor(){
-        console.log('c')
         this.dbClient = ''
         this.connect()//初始化连接数据库
     }
@@ -21,15 +20,12 @@ class Db{
         return new Promise((resolve,reject)=>{
             if(!this.dbClient){//解决数据库多次连接
                 MongoClient.connect(Config.dburl,{ useNewUrlParser: true },(err,client)=>{
-                    // console.log(client)
                     if(err){
-                        console.log('链接出错')
                         reject(err)
                         return
                     }else{
                         this.dbClient = client.db(Config.dbname)
                         resolve(this.dbClient)
-                        console.log('链接成功')
                     }
                 })
             }else{
@@ -85,7 +81,6 @@ class Db{
     }
     //删
     remove(collectionName,json){
-        console.log('a')
         return new Promise((resolve,reject)=>{
             this.connect().then(db=>{
                 db.collection(collectionName).removeOne(json,(err,result)=>{

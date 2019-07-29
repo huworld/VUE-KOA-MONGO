@@ -6,8 +6,8 @@ const bodyParser = require('koa-bodyparser')
 const views = require('koa-views')
 const render = require('koa-art-template')
 const static = require('koa-static')
-const fs = require('fs')
-const request = require('request-promise')
+// const request = require('request-promise')
+const writeLog = require('./common/writeLog')
 require('./nodeApi/index.js')
 require('./sort')
 
@@ -18,17 +18,15 @@ app.use(async (ctx, next) => {
     } catch (err) {
       ctx.response.status = err.statusCode || err.status || 500;
       ctx.response.body = {
+        code:err.statusCode || err.status || 500,
         message: err.message
       };
       ctx.app.emit('error', err, ctx);
     }
 })
-function writeLog (data) {
-  fs.appendFile('./serve/error.txt', data, 'utf8')
-}
+
 app.on('error', (err, ctx) =>{
   writeLog('server error' + err + '\n' + JSON.stringify(ctx) + '\r\n')
-  console.log('server error', err)
 })
 /* 渲染页面 */
 // render(app,{
