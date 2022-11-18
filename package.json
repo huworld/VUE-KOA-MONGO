@@ -33,7 +33,7 @@
   },
   "devDependencies": {
     "@vue/cli-plugin-babel": "^3.4.0",
-    "@vue/cli-service": "^3.4.0",
+    "@vue/cli-service": "^5.0.8",
     "fibers": "^3.1.1",
     "iview-loader": "^1.2.2",
     "nodemon": "^1.19.1",
